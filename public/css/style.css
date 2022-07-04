@@ -1,0 +1,113 @@
+
+
+@font-face {
+	font-family: 'Pokemon';
+	src: url('../PokemonGB.ttf') format('truetype')
+}
+
+body{
+    margin :0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pokemon';
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+.game_box{
+    width: 60vw;
+    border: 2px solid;
+    border-radius: 3px;
+    overflow: hidden;
+}
+#battle-field{
+    
+    height: 70vh;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/aa15ff7d-d333-4bf9-b115-95e18f63fe91/d5ynr9c-33aeebd0-1cd8-45d9-86fc-8431aa114534.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9hYTE1ZmY3ZC1kMzMzLTRiZjktYjExNS05NWUxOGY2M2ZlOTEvZDV5bnI5Yy0zM2FlZWJkMC0xY2Q4LTQ1ZDktODZmYy04NDMxYWExMTQ1MzQucG5nIn1dXX0.qez_vbTifC9eeMQk82mAlDkvPkA4c4-Eidii31-XAvs');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#rayquaza-img{
+    position: absolute;
+    width: 30%;
+    left: 12%;
+    top: 44%;
+}
+
+#charizard-img{
+    width: 18%;
+    position:absolute;
+    left: 68%;
+    top: 35%;
+}
+
+#controls{
+    background-color: rgb(39, 43, 46);
+    height: 30vh;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 4px solid rgb(44, 42, 42);
+}
+
+.attaques{
+    display: flex;
+    flex-wrap: wrap;
+    width: 21rem;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+}
+.attaque{
+    width: 10rem;
+    height: 4rem;
+}
+.narrative_box{
+    width: 50%;
+    color: rgb(179, 174, 174);
+    font-size: 23px;
+}
+
+
+.info{
+    background-color: rgba(56, 46, 46, 0.63);
+    width: 20rem;
+    height: 5rem;
+    border-radius: 5px;
+    padding: 3px 6px;
+    display: flex;
+    color: white;
+    flex-wrap: wrap;
+    font-size: 12px;
+    gap: 10px;
+}
+.info p{
+    margin-top: 6px
+}
+
+#info_rayquaza{
+    position: absolute;
+    top: 70%;
+    right: 0;
+}
+#info_charizard{
+    position: absolute;
+    top: 20%;
+    
+}
+.pokeballs{
+    display: flex;
+}
+.pokeball{
+
+    background-image: url('http://bit.ly/pokeballimg');
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+}
+#poke_life{
+    width: 80%;
+}
