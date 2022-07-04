@@ -65,10 +65,11 @@ p{
     width: 10rem;
     height: 4rem;
 }
-.narrative_box{
+#narrative_box{
     width: 50%;
     color: rgb(179, 174, 174);
     font-size: 23px;
+    line-height: 2rem;
 }
 
 
