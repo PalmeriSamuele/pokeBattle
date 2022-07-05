@@ -30,14 +30,14 @@ p{
     background-size: cover;
     position: relative;
 }
-#rayquaza-img{
+#poke1-img{
     position: absolute;
     width: 30%;
     left: 12%;
     top: 57%;
 }
 
-#charizard-img{
+#poke2-img{
     width: 18%;
     position:absolute;
     left: 68%;
@@ -67,7 +67,7 @@ p{
 #narrative_box{
     width: 50%;
     color: rgb(179, 174, 174);
-    font-size: 23px;
+    font-size: 18px;
     line-height: 2rem;
 }
 
@@ -115,6 +115,9 @@ p{
 #pokemons1,#pokemons2{
     overflow: scroll;
     height: 100vh;
+    width: 10vw;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #game{

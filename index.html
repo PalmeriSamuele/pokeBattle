@@ -8,11 +8,12 @@
     <title>PokeBattle</title>
 </head>
 <body>
+   
     <div id="pokemons1"></div>
     <div class="game_box">
         <div id='battle-field'>
-            <img id='rayquaza-img' src="" alt="">
-            <img id='charizard-img' src="" alt="">
+            <img id='poke1-img' src="" alt="">
+            <img id='poke2-img' src="" alt="">
             <div id="info_rayquaza" class="info">
                 <div class="pokeballs">
                     <div class="pokeball"></div>
@@ -72,16 +73,29 @@
                 })
                 .then(data => {
                   const pokemons = data.results
-                  console.log(data.results);
+                  console.log(data);
                   pokemons.forEach(pokemon => {
+                    try {
+                        fetch(pokemon.url)
+                        .then(response => response.json())
+                        .then(_pokemon => {
+                              // let image = document.createElement('img');
+                            // image.src = pokemon.sprites.front_default;
+                            // image.setAttribute('onclick',`detail('${pokemon.url}')`)
+                            document.getElementById('pokemons1')
+                                .insertAdjacentHTML('beforeend',`<img src="${_pokemon.sprites.front_default}" onclick="detail_poke1('${pokemon.url}')" alt="">`)
+                            document.getElementById('pokemons2')
+                                .insertAdjacentHTML('beforeend',`<img src="${_pokemon.sprites.front_default}" onclick="detail_poke2('${pokemon.url}')" alt="">`)
+                                     
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        })
+                    } catch (error) {
+                        console.error(error)
+                    }
+                  
                     
-                    // let image = document.createElement('img');
-                    // image.src = pokemon.sprites.front_default;
-                    // image.setAttribute('onclick',`detail('${pokemon.url}')`)
-                    document.getElementById('pokemons1')
-                      .insertAdjacentHTML('beforeend',`<p onclick='detail_poke1("${pokemon.url}")'>${pokemon.name}</p>`)
-                      document.getElementById('pokemons2')
-                      .insertAdjacentHTML('beforeend',`<p onclick='detail_poke2("${pokemon.url}")'>${pokemon.name}</p>`)
                   })
                 })
                 .catch(error => {
@@ -99,9 +113,15 @@
                   .then(pokemon => {
                     let level_random = Math.floor(Math.random()*100+1);
                     document.getElementById('name_poke_1').innerHTML = pokemon.name + ' lvl '+ level_random;
-                    document.getElementById('rayquaza-img').src=`${pokemon.sprites.back_default}`;
+                    // if(nb == 1){
+                    //     
+                    // }
+                    //    else{
+                    //     document.getElementById('poke1-img').src=`${pokemon.sprites.front_default}`;
+                    //    }
+                    document.getElementById('poke1-img').src=`${pokemon.sprites.back_default}`;
                     let atqs = document.getElementById('attaques').children;
-                    console.log(atqs);
+                    
 
                     for (let i = 0; i < atqs.length; i++) {
                         fetch(`https://pokeapi.co/api/v2/move/${pokemon.moves[i].move.name}`)
@@ -132,10 +152,8 @@
                   .then(pokemon => {
                     let level_random = Math.floor(Math.random()*100+1);
                     document.getElementById('name_poke_2').innerHTML = pokemon.name + ' lvl '+ Math.floor(Math.random()*100+1);
-
-                    document.getElementById('charizard-img').innerHTML = ''
-                    document.getElementById('charizard-img').src=`${pokemon.sprites.front_default}`;
-
+                    document.getElementById('poke2-img').src=`${pokemon.sprites.front_default}`;
+                    document.getElementById('narrative_box').innerHTML = 'Quel attaque vouslez-vous lancer ?';
                     let atqs = document.getElementById('attaques_ennemies').children;
                     console.log(atqs);
 
