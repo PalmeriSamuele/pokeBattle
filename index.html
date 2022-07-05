@@ -46,13 +46,13 @@
         </div>
         <div id="controls">
             <div id="narrative_box">
-                bonjour
+                Quel attaque vouslez-vous lancer ?
             </div>
             <div id="attaques">
-                <button id='atq1' class="attaque">Mâchouille</button>
-                <button id='atq2' class="attaque">Draco-Choc</button>
-                <button id='atq3' class="attaque">Repos</button>
-                <button id='atq4' class="attaque">Draco-Griffe</button>
+                <button id='atq1' class="attaque"></button>
+                <button id='atq2' class="attaque"></button>
+                <button id='atq3' class="attaque"></button>
+                <button id='atq4' class="attaque"></button>
             </div>
                 
         </div>
@@ -130,6 +130,7 @@
                 fetch(url)
                   .then(response => response.json())
                   .then(pokemon => {
+                    let level_random = Math.floor(Math.random()*100+1);
                     document.getElementById('name_poke_2').innerHTML = pokemon.name + ' lvl '+ Math.floor(Math.random()*100+1);
 
                     document.getElementById('charizard-img').innerHTML = ''
@@ -152,6 +153,7 @@
                             console.log(atqs[i]);
                         })
                     }
+                    
 
                   })
                   .catch(error => {
