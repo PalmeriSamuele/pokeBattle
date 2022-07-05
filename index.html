@@ -8,10 +8,11 @@
     <title>PokeBattle</title>
 </head>
 <body>
+    <div id="pokemons1"></div>
         <div class="game_box">
             <div id='battle-field'>
-                <img id='rayquaza-img' src="https://www.pokepedia.fr/images/c/c6/Sprite_384_chromatique_dos_NB.png" alt="">
-                <img id='charizard-img' src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif" alt="">
+                <img id='rayquaza-img' src="" alt="">
+                <img id='charizard-img' src="" alt="">
                 <div id="info_rayquaza" class="info">
                     <div class="pokeballs">
                         <div class="pokeball"></div>
@@ -19,7 +20,7 @@
                         <div class="pokeball"></div>
                         <div class="pokeball"></div>
                     </div>
-                    <p>Rayquaza lvl 100</p>
+                    <p id="name_poke_1"> </p>
                     <progress id="poke_life1" max="100" value="100"> </progress>
                     <label id='life_label1' for="">100</label>
                  
@@ -31,7 +32,8 @@
                         <div class="pokeball"></div>
                         <div class="pokeball"></div>
                     </div>
-                    <p>Charizard lvl 100</p>
+                    <p id="name_poke_2"> </p>
+                
                     <progress id="poke_life2" max="100" value="100"> </progress>
                     <label id='life_label2' for="">100</label>
                 </div>
@@ -40,7 +42,7 @@
                 <div id="narrative_box">
                     bonjour
                 </div>
-                <div class="attaques">
+                <div id="attaques">
                     <button id='Mâchouille' class="attaque">Mâchouille</button>
                     <button id='Draco-Choc' class="attaque">Draco-Choc</button>
                     <button id='Repos' class="attaque">Repos</button>
@@ -48,10 +50,89 @@
                 </div>
                     
             </div>
+           
+           
         </div>
+        
+        <div id="pokemons2"></div>
 
       
+        <script>
+            const baseUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151'
+            try {
+              fetch(baseUrl)
+                .then(response => {
+                  const responseJson = response.json()
+                  return responseJson
+                })
+                .then(data => {
+                  const pokemons = data.results
+                  console.log(data);
+                  pokemons.forEach(pokemon => {
+                    
+                    // let image = document.createElement('img');
+                    // image.src = pokemon.sprites.front_default;
+                    // image.setAttribute('onclick',`detail('${pokemon.url}')`)
+                    document.getElementById('pokemons1')
+                      .insertAdjacentHTML('beforeend',`<p onclick='detail_poke1("${pokemon.url}")'>${pokemon.name}</p>`)
+                      document.getElementById('pokemons2')
+                      .insertAdjacentHTML('beforeend',`<p onclick='detail_poke2("${pokemon.url}")'>${pokemon.name}</p>`)
+                  })
+                })
+                .catch(error => {
+                  console.error(error)
+                })
+            } catch (error) {
+              console.error(error)
+            }
+        
+            const detail_poke1 = (url) => {
+              try {
+                fetch(url)
+                  .then(response => response.json())
+                  .then(pokemon => {
+                    document.getElementById('name_poke_1').innerHTML = pokemon.name + ' lvl '+ Math.floor(Math.random()*100+1);
+                    document.getElementById('rayquaza-img').innerHTML = ''
+                    document.getElementById('rayquaza-img').src=`${pokemon.sprites.back_default}`;
+                    let atqs = document.getElementById('attaques').children;
+                    console.log(atqs);
+                    for (let i = 0; i < atqs.length; i++) {
+                        fetch(`https://pokeapi.co/api/v2/move/${pokemon.moves[i].move.name1}`)
+                        .then(response => response.json())
+                        .then(atq =>{
+                            atqs[i].innerHTML = pokemon.moves[i].move.name;
+                            console.log(atq)
+                        })
 
+                       
+                    }
+                  })
+                  .catch(error => {
+                    console.error(error)
+                  })
+              } catch (error) {
+                console.error(error)
+              }
+            }
+            const detail_poke2 = (url) => {
+              try {
+                fetch(url)
+                  .then(response => response.json())
+                  .then(pokemon => {
+                    document.getElementById('name_poke_2').innerHTML = pokemon.name + ' lvl '+ Math.floor(Math.random()*100+1);
+
+                    document.getElementById('charizard-img').innerHTML = ''
+                    document.getElementById('charizard-img').src=`${pokemon.sprites.front_default}`;
+
+                  })
+                  .catch(error => {
+                    console.error(error)
+                  })
+              } catch (error) {
+                console.error(error)
+              }
+            }
+    </script>
     <script type="module" src="/public/js/main.js"></script>
     
 </body>

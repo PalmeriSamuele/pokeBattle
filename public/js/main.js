@@ -7,10 +7,10 @@ document.getElementById('Mâchouille').addEventListener('click',function(){
 function startBattle(rayquaza,charizard){
     let turn = true;
     while(rayquaza.hp > 0 || charizard.hp > 0){
-        if(turn){
-            charizard.chooseRandomAtq();
-        }
-        turn = switchBool(bool);
+        // if(turn){
+        //     charizard.chooseRandomAtq();
+        // }
+        turn = switchBool(turn);
     }
 }
 
@@ -23,4 +23,5 @@ function switchBool(bool){
     }
 }
 
-startBattle();
+// startBattle(rayquaza,charizard);
+

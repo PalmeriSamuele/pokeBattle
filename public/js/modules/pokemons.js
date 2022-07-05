@@ -63,7 +63,6 @@ export let charizard = {
       
         
 
-    },
-    liste_atq : [Machouille(cible),Deflafration(cible)],
+    }
 }
 

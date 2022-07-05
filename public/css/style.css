@@ -34,14 +34,14 @@ p{
     position: absolute;
     width: 30%;
     left: 12%;
-    top: 44%;
+    top: 57%;
 }
 
 #charizard-img{
     width: 18%;
     position:absolute;
     left: 68%;
-    top: 35%;
+    top: 44%;
 }
 
 #controls{
@@ -51,8 +51,7 @@ p{
     justify-content: flex-end;
     border-top: 4px solid rgb(44, 42, 42);
 }
-
-.attaques{
+#attaques{
     display: flex;
     flex-wrap: wrap;
     width: 21rem;
@@ -111,4 +110,9 @@ p{
 }
 #poke_life{
     width: 80%;
+}
+
+#pokemons1,#pokemons2{
+    overflow: scroll;
+    height: 100vh;
 }
