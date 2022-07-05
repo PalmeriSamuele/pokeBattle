@@ -116,3 +116,7 @@ p{
     overflow: scroll;
     height: 100vh;
 }
+
+#game{
+    display: flex;
+}
