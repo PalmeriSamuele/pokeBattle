@@ -83,9 +83,9 @@
                             // image.src = pokemon.sprites.front_default;
                             // image.setAttribute('onclick',`detail('${pokemon.url}')`)
                             document.getElementById('pokemons1')
-                                .insertAdjacentHTML('beforeend',`<img src="${_pokemon.sprites.front_default}" onclick="detail_poke1('${pokemon.url}')" alt="">`)
+                                .insertAdjacentHTML('beforeend',`<img class='poke-img-side' src="${_pokemon.sprites.front_default}" onclick="detail_poke1('${pokemon.url}')" alt="">`)
                             document.getElementById('pokemons2')
-                                .insertAdjacentHTML('beforeend',`<img src="${_pokemon.sprites.front_default}" onclick="detail_poke2('${pokemon.url}')" alt="">`)
+                                .insertAdjacentHTML('beforeend',`<img class='poke-img-side' src="${_pokemon.sprites.front_default}" onclick="detail_poke2('${pokemon.url}')" alt="">`)
                                      
                         })
                         .catch(error => {
